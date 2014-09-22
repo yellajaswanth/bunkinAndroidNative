@@ -29,41 +29,52 @@ public final class R {
         public static final int ic_launcher=0x7f020000;
     }
     public static final class id {
+        public static final int LoginButton=0x7f090002;
+        public static final int action_friends=0x7f09000e;
+        public static final int action_logout=0x7f09000d;
         public static final int action_settings=0x7f09000c;
-        public static final int button1=0x7f09000b;
         public static final int noSearchFeed=0x7f090008;
         public static final int no_feed=0x7f090009;
         public static final int pager=0x7f090004;
         public static final int passwordField=0x7f090001;
-        public static final int searchText=0x7f09000a;
-        public static final int signUpButton=0x7f090002;
+        public static final int searchText=0x7f09000b;
         public static final int signUpText=0x7f090003;
         public static final int signup_Email=0x7f090007;
         public static final int signup_Password=0x7f090006;
         public static final int signup_userName=0x7f090005;
+        public static final int userFriends=0x7f09000a;
         public static final int userNameField=0x7f090000;
     }
     public static final class layout {
-        public static final int activity_login=0x7f030000;
-        public static final int activity_main=0x7f030001;
-        public static final int activity_signup=0x7f030002;
-        public static final int explore_feed=0x7f030003;
-        public static final int fragment_main=0x7f030004;
-        public static final int home_feed=0x7f030005;
-        public static final int profile_view=0x7f030006;
-        public static final int search_view=0x7f030007;
+        public static final int activity_friends=0x7f030000;
+        public static final int activity_login=0x7f030001;
+        public static final int activity_main=0x7f030002;
+        public static final int activity_signup=0x7f030003;
+        public static final int activity_user_friends=0x7f030004;
+        public static final int explore_feed=0x7f030005;
+        public static final int fragment_main=0x7f030006;
+        public static final int home_feed=0x7f030007;
+        public static final int profile_view=0x7f030008;
+        public static final int search_view=0x7f030009;
     }
     public static final class menu {
-        public static final int login=0x7f080000;
-        public static final int main=0x7f080001;
-        public static final int signup=0x7f080002;
+        public static final int friends=0x7f080000;
+        public static final int login=0x7f080001;
+        public static final int main=0x7f080002;
+        public static final int signup=0x7f080003;
+        public static final int user_friends=0x7f080004;
     }
     public static final class string {
         public static final int action_settings=0x7f060006;
         public static final int app_name=0x7f060000;
         public static final int email_hint=0x7f06000d;
+        public static final int error_title=0x7f06001b;
         public static final int hello_world=0x7f060005;
+        public static final int login_error_msg=0x7f060016;
+        public static final int login_error_title=0x7f060017;
         public static final int loging_button_text=0x7f06000a;
+        public static final int menu_friends_label=0x7f060019;
+        public static final int menu_logout_label=0x7f060018;
         public static final int noExploreFeed=0x7f060013;
         public static final int noFeed=0x7f06000e;
         public static final int noHomeFeed=0x7f06000f;
@@ -74,12 +85,15 @@ public final class R {
         public static final int signup_error_msg=0x7f060014;
         public static final int signup_error_title=0x7f060015;
         public static final int signup_text=0x7f06000b;
+        public static final int title_activity_friends=0x7f06001a;
         public static final int title_activity_login=0x7f060007;
         public static final int title_activity_signup=0x7f06000c;
+        public static final int title_activity_user_friends=0x7f06001c;
         public static final int title_section1=0x7f060001;
         public static final int title_section2=0x7f060002;
         public static final int title_section3=0x7f060003;
         public static final int title_section4=0x7f060004;
+        public static final int userFriends=0x7f06001d;
         public static final int username_hint=0x7f060008;
     }
     public static final class style {

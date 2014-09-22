@@ -23,5 +23,13 @@
     <string name="noExploreFeed">Bunkin Explore Coming Soon..!</string>
     <string name="signup_error_msg">Please make sure you enter all the signup details.</string>
     <string name="signup_error_title">Signup Error</string>
+    <string name="login_error_msg">Enter a valid username and password</string>
+    <string name="login_error_title">Login Error</string>
+    <string name="menu_logout_label">Logout</string>
+    <string name="menu_friends_label">Friends</string>
+    <string name="title_activity_friends">Friends</string>
+    <string name="error_title">Oops, sorry!</string>
+    <string name="title_activity_user_friends">Friends</string>
+    <string name="userFriends">Friends</string>
 
 </resources>
