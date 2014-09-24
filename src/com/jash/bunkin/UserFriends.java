@@ -27,7 +27,7 @@ public class UserFriends extends ListActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_user_friends);	
-		requestWindowFeature(Window.FEATURE_INDETERMINATE_PROGRESS);
+		
 		
 	}
 
@@ -38,7 +38,7 @@ public class UserFriends extends ListActivity {
 		
 		mCurrentUser = ParseUser.getCurrentUser();
 		mFriendsRelation = mCurrentUser.getRelation(ParseConstants.KEY_FRIENDS_RELATION);
-		setProgressBarIndeterminateVisibility(true);
+		
 
 		// TODO Auto-generated method stub
 		ParseQuery<ParseUser> query =  mFriendsRelation.getQuery();
@@ -47,7 +47,7 @@ public class UserFriends extends ListActivity {
 
 			@Override
 			public void done(List<ParseUser> friends, ParseException e) {
-				setProgressBarIndeterminateVisibility(false);
+				
 				if(e==null){
 					mFriends = friends;
 	

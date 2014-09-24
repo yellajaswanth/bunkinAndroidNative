@@ -31,5 +31,14 @@
     <string name="error_title">Oops, sorry!</string>
     <string name="title_activity_user_friends">Friends</string>
     <string name="userFriends">Friends</string>
+    <string name="menu_camera_label">Camera</string>
+    <string name="error_external_storage">There was a problem accessing your device external storage.</string>
+    <string-array name="camera_choices">
+        <item >Take Picture</item>
+        <item >Take Video</item>
+        <item >Choose Picture</item>
+        <item >Choose Video</item>
+    </string-array>
+    
 
-</resources>
+ </resources>
