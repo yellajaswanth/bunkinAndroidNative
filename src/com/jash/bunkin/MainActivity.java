@@ -1,6 +1,9 @@
 package com.jash.bunkin;
 
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStream;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
@@ -23,6 +26,7 @@ import android.view.MenuItem;
 import android.widget.Toast;
 
 import com.jash.bunkin.Adapters.SectionsPagerAdapter;
+import com.jash.bunkin.actions.ComposeActivity;
 import com.parse.ParseAnalytics;
 import com.parse.ParseUser;
 
@@ -51,6 +55,8 @@ public class MainActivity extends FragmentActivity implements
 
 	public static final int MEDIA_TYPE_IMAGE = 4;
 	public static final int MEDIA_TYPE_VIDEO = 5;
+	
+	public static final int FILE_SIZE_LIMIT = 1024*1024*10; //10MB
 
 	protected Uri mMediaUri;
 
@@ -76,12 +82,32 @@ public class MainActivity extends FragmentActivity implements
 				break;
 			case 1:
 				// Take Video
+				Intent videoIntent = new Intent(MediaStore.ACTION_VIDEO_CAPTURE);
+				mMediaUri = getOutputMediaFileUri(MEDIA_TYPE_VIDEO);
+				if (mMediaUri == null) {
+					Toast.makeText(MainActivity.this,
+							R.string.error_external_storage, Toast.LENGTH_LONG)
+							.show();
+				} else {
+					videoIntent
+							.putExtra(MediaStore.EXTRA_OUTPUT, mMediaUri)
+							.putExtra(MediaStore.EXTRA_DURATION_LIMIT, 10)
+							.putExtra(MediaStore.EXTRA_VIDEO_QUALITY, 0);
+					startActivityForResult(videoIntent, TAKE_VIDEO_REQUEST);
+				}
 				break;
 			case 2:
 				// Choose Picture
+				Intent choosePhotoIntent = new Intent(Intent.ACTION_GET_CONTENT);
+				choosePhotoIntent.setType("image/*");
+				startActivityForResult(choosePhotoIntent, PICK_PHOTO_REQUEST);
 				break;
 			case 3:
 				// Choose Video
+				Intent chooseVideoIntent = new Intent(Intent.ACTION_GET_CONTENT);
+				chooseVideoIntent.setType("video/*");
+				Toast.makeText(MainActivity.this, R.string.vide_file_size_warning, Toast.LENGTH_LONG).show();
+				startActivityForResult(chooseVideoIntent, PICK_VIDEO_REQUEST);				
 				break;
 			}
 		}
@@ -196,11 +222,52 @@ public class MainActivity extends FragmentActivity implements
 		
         if (resultCode == RESULT_OK) {
             // Image captured and saved to fileUri specified in the Intent
-            Intent mediaScanIntent = new Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE);
-            mediaScanIntent.setData(mMediaUri);
-            sendBroadcast(mediaScanIntent);
+        	
+        	if(requestCode == PICK_PHOTO_REQUEST || requestCode == PICK_VIDEO_REQUEST){
+        		if(data == null){
+        			Toast.makeText(this, getString(R.string.general_error), Toast.LENGTH_LONG).show();
+        		} else{
+        			mMediaUri = data.getData();
+        		}
+        		
+        		if(requestCode == PICK_VIDEO_REQUEST) {
+        			// make sure the file is less than 10mb        			
+        			int fileSize = 0;
+        			InputStream inputStream = null;
+        			try{
+	        			inputStream = getContentResolver().openInputStream(mMediaUri); 
+	        			fileSize = inputStream.available();
+        			}
+        			catch (FileNotFoundException e){
+        				Toast.makeText(this, R.string.error_opening_file, Toast.LENGTH_LONG).show();
+        				return;
+        			}
+        			catch (IOException e){
+        				Toast.makeText(this, R.string.error_opening_file, Toast.LENGTH_LONG).show();
+        				return;
+        			}
+        			
+        			finally{
+        				try {
+							inputStream.close();
+						} catch (IOException e) { }
+        			}
+        			
+        			if(fileSize >= FILE_SIZE_LIMIT){
+        				Toast.makeText(this, R.string.file_size_warning, Toast.LENGTH_LONG).show();
+        				return;
+        			}
+        		}
+        	}
+        	else{        	
+	            Intent mediaScanIntent = new Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE);
+	            mediaScanIntent.setData(mMediaUri);
+	            sendBroadcast(mediaScanIntent);
+        	}
         } else if (resultCode == RESULT_CANCELED) {
             // User cancelled the image capture
+        	Toast.makeText(this, getString(R.string.general_error), Toast.LENGTH_LONG).show();
+        	return;
         } else {
             // Image capture failed, advise user
         }
@@ -227,22 +294,29 @@ public class MainActivity extends FragmentActivity implements
 		// automatically handle clicks on the Home/Up button, so long
 		// as you specify a parent activity in AndroidManifest.xml.
 		int id = item.getItemId();
+		Intent intent;
 		switch (id) {
 		case R.id.action_logout:
 			ParseUser.logOut();
 			navigateToLogin();
+			return true;
 		case R.id.action_friends:
-			Intent intent = new Intent(this, FriendsActivity.class);
+			intent = new Intent(this, FriendsActivity.class);
 			startActivity(intent);
+			return true;
 		case R.id.action_camera:
 			AlertDialog.Builder builder = new AlertDialog.Builder(this);
 			builder.setItems(R.array.camera_choices, mDialogListener);
 			AlertDialog dialog = builder.create();
 			dialog.show();
-
-		}
-
-		return super.onOptionsItemSelected(item);
+			return true;
+		case R.id.action_compose:
+			intent = new Intent(this, ComposeActivity.class);
+			startActivity(intent);
+			return true;
+		default:
+			return super.onOptionsItemSelected(item);
+		}		
 	}
 
 	@Override

@@ -32,13 +32,22 @@
     <string name="title_activity_user_friends">Friends</string>
     <string name="userFriends">Friends</string>
     <string name="menu_camera_label">Camera</string>
+    <string name="general_error">Oops, something went wrong</string>
     <string name="error_external_storage">There was a problem accessing your device external storage.</string>
-    <string-array name="camera_choices">
-        <item >Take Picture</item>
-        <item >Take Video</item>
-        <item >Choose Picture</item>
-        <item >Choose Video</item>
-    </string-array>
-    
 
- </resources>
+    <string-array name="camera_choices">
+        <item>Take Picture</item>
+        <item>Take Video</item>
+        <item>Choose Picture</item>
+        <item>Choose Video</item>
+    </string-array>
+
+    <string name="file_size_warning">File size exceeded. Must be less than 10MB.</string>
+    <string name="vide_file_size_warning">Video file size must be less than 10mb</string>
+    <string name="error_opening_file">There was a problem with the selected file</string>
+    <string name="compose">compose_status</string>
+    <string name="title_activity_compose">Compose</string>
+    <string name="compose_send">Send</string>
+    <string name="whats_on_your_mind">What\'s on your mind?</string>
+
+</resources>
