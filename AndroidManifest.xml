@@ -56,10 +56,16 @@
             android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:name="com.jash.bunkin.actions.ComposeActivity"
+            android:name=".actions.ComposeActivity"
             android:label="@string/title_activity_compose"
             android:parentActivityName=".MainActivity"
-            android:screenOrientation="portrait" >            
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.jash.bunkin.actions.CreateBunkin"
+            android:label="@string/title_activity_create_bunkin"
+            android:parentActivityName=".MainActivity"
+            android:screenOrientation="portrait" >
         </activity>
     </application>
 

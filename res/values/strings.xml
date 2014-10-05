@@ -50,4 +50,21 @@
     <string name="compose_send">Send</string>
     <string name="whats_on_your_mind">What\'s on your mind?</string>
 
+    <string-array name="status_choices">
+        <item>Update Status</item>
+        <item>Add a bunkin</item>
+    </string-array>
+
+    <string name="title_activity_create_bunkin">Create Bunkin</string>
+
+    <string name="bunkin_name">Bunkin name</string>
+
+    <string name="bunkin_details_hint">Details</string>
+
+    <string name="bunkin_Location_hint">Location</string>
+
+    <string name="bunkin_date_hint">Date</string>
+
+    <string name="bunkin_time_hint">Time</string>
+
 </resources>

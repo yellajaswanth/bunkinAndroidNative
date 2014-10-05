@@ -58,7 +58,7 @@ public class HomeFragment extends ListFragment {
 				getActivity().setProgressBarIndeterminateVisibility(false);
 				
 				if (e == null) {
-					// We found messages!
+					// We found feed!
 					mFeed = feed;					
 					FeedListAdapter adapter = new FeedListAdapter(
 							getListView().getContext(), 

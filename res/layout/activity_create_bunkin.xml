@@ -1,0 +1,85 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.jash.bunkin.actions.CreateBunkin"
+     >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:orientation="vertical" >
+
+        <EditText
+            android:id="@+id/bunkin_event_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="@string/bunkin_name" 
+                       
+             >
+			
+            <requestFocus />
+        </EditText>
+        
+        <EditText
+            android:id="@+id/bunkin_details"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="@string/bunkin_details_hint"            
+            
+            
+             >
+             
+            </EditText>
+           
+        <EditText
+            android:id="@+id/bunkin_place"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="@string/bunkin_Location_hint"
+            android:drawableLeft="@drawable/map_pointer"
+             android:gravity="center_vertical"
+    		
+    		
+             />  
+             
+        <LinearLayout 
+            android:layout_width="match_parent"
+        	android:layout_height="wrap_content"
+        	android:orientation="horizontal">
+             
+        <EditText
+            android:id="@+id/bunkin_date"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:drawableLeft="@drawable/calendar"
+            android:ems="10"
+            
+            android:gravity="center_vertical"
+            android:hint="@string/bunkin_date_hint" />
+        
+        <EditText
+            android:id="@+id/bunkin_time"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:drawableLeft="@drawable/clock"
+            android:ems="10"
+            android:gravity="center_vertical"
+            android:hint="@string/bunkin_time_hint"
+            />
+
+       </LinearLayout>
+    </LinearLayout>
+
+</RelativeLayout>

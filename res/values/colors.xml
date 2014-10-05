@@ -9,4 +9,7 @@
     <color name="link">#0a80d1</color>
     <color name="timestamp">#a0a3a7</color>
     <color name="hint_color">#95a5a6</color>
+    <color name="bunkin_linearlayout_bg">#F4F4F0</color>
+    <color name="bunkin_grey">#DDDDD8</color>
+    
 </resources>

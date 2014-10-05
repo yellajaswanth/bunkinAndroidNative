@@ -27,6 +27,7 @@ import android.widget.Toast;
 
 import com.jash.bunkin.Adapters.SectionsPagerAdapter;
 import com.jash.bunkin.actions.ComposeActivity;
+import com.jash.bunkin.actions.CreateBunkin;
 import com.parse.ParseAnalytics;
 import com.parse.ParseUser;
 
@@ -59,11 +60,30 @@ public class MainActivity extends FragmentActivity implements
 	public static final int FILE_SIZE_LIMIT = 1024*1024*10; //10MB
 
 	protected Uri mMediaUri;
+	
+	protected DialogInterface.OnClickListener mStatusDialogListener = new DialogInterface.OnClickListener() {
+		
+		@Override
+		public void onClick(DialogInterface dialog, int which) {
+			Intent intent;
+			switch(which) {
+			case 0:
+				intent = new Intent(MainActivity.this, ComposeActivity.class);
+				startActivity(intent);
+				break;
+			case 1:
+				intent = new Intent(MainActivity.this, CreateBunkin.class);
+				startActivity(intent);
+				break;
+			}
+			
+		}
+	};
 
 	protected DialogInterface.OnClickListener mDialogListener = new DialogInterface.OnClickListener() {
 
 		@Override
-		public void onClick(DialogInterface dialog, int which) {
+		public void onClick(DialogInterface dialog, int which) {			
 			switch (which) {
 			case 0:
 				// Take Picture
@@ -295,6 +315,8 @@ public class MainActivity extends FragmentActivity implements
 		// as you specify a parent activity in AndroidManifest.xml.
 		int id = item.getItemId();
 		Intent intent;
+		AlertDialog.Builder builder = new AlertDialog.Builder(this);
+		
 		switch (id) {
 		case R.id.action_logout:
 			ParseUser.logOut();
@@ -304,15 +326,18 @@ public class MainActivity extends FragmentActivity implements
 			intent = new Intent(this, FriendsActivity.class);
 			startActivity(intent);
 			return true;
-		case R.id.action_camera:
-			AlertDialog.Builder builder = new AlertDialog.Builder(this);
-			builder.setItems(R.array.camera_choices, mDialogListener);
+		case R.id.action_camera:			
+			builder.setItems(R.array.camera_choices, mDialogListener);	
 			AlertDialog dialog = builder.create();
 			dialog.show();
 			return true;
 		case R.id.action_compose:
-			intent = new Intent(this, ComposeActivity.class);
+			/*intent = new Intent(this, ComposeActivity.class);
 			startActivity(intent);
+			return true;*/			
+			builder.setItems(R.array.status_choices, mStatusDialogListener);		
+			AlertDialog statusDlg = builder.create();
+			statusDlg.show();
 			return true;
 		default:
 			return super.onOptionsItemSelected(item);
