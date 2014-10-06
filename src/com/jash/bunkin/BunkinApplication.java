@@ -7,9 +7,9 @@ import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.ImageLoader;
 import com.android.volley.toolbox.Volley;
-
 import com.jash.bunkin.listviewfeed.volley.LruBitmapCache;
 import com.parse.Parse;
+import com.parse.ParseFacebookUtils;
 
 public class BunkinApplication extends Application {
 	
@@ -26,6 +26,8 @@ public class BunkinApplication extends Application {
 		super.onCreate();
 		Parse.initialize(this, "JxXHgO8hUWKuXV36SQdb27XLSCCgEYigtrzijxOb",
 				"zeRNX8C442fNihWT2BBus6mRDyL6jcB3SPkRinpC");
+		
+		ParseFacebookUtils.initialize("527984927302867");
 		
 		mInstance = this;
 

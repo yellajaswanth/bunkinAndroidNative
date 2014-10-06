@@ -28,18 +28,8 @@ public class ProfileFragment extends ListFragment {
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
 		View rootView = inflater.inflate(R.layout.profile_view,
-				container, false);
+				container, false);		
 		
-		showFriends = (Button) rootView.findViewById(R.id.userFriends);
-		
-		showFriends.setOnClickListener(new OnClickListener() {			
-			@Override
-			public void onClick(View v) {
-				Log.i(TAG,getActivity().toString());
-				Intent intent = new Intent(getActivity(), UserFriends.class);
-				startActivity(intent);				
-			}
-		});
 
 		return rootView;
 	}

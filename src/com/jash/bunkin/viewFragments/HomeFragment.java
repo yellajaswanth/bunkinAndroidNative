@@ -63,7 +63,7 @@ public class HomeFragment extends ListFragment {
 					FeedListAdapter adapter = new FeedListAdapter(
 							getListView().getContext(), 
 							mFeed);
-					Log.e(TAG, mFeed.toString());
+					//Log.e(TAG, mFeed.toString());
 					setListAdapter(adapter);
 					getListView().setOnItemClickListener(new OnItemClickListener() {
 

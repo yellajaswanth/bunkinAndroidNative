@@ -42,7 +42,7 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
 			case 2:
 				return new SearchFragment();
 			case 3:
-				return new ProfileFragment();
+				return new ProfileFragment();				
 		}
 
 		return null;

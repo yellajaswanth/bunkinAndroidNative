@@ -80,25 +80,25 @@ public final class R {
         public static final int bunkin_event_name=0x7f0a0002;
         public static final int bunkin_place=0x7f0a0004;
         public static final int bunkin_time=0x7f0a0006;
-        public static final int feedImage1=0x7f0a0017;
-        public static final int imageButton1=0x7f0a0018;
-        public static final int imageButton2=0x7f0a0019;
+        public static final int feedImage1=0x7f0a0016;
+        public static final int imageButton1=0x7f0a0017;
+        public static final int imageButton2=0x7f0a0018;
         public static final int imageView1=0x7f0a0000;
-        public static final int name=0x7f0a0014;
-        public static final int noSearchFeed=0x7f0a0012;
-        public static final int no_feed=0x7f0a001a;
+        public static final int name=0x7f0a0013;
+        public static final int noSearchFeed=0x7f0a001a;
+        public static final int no_feed=0x7f0a0019;
         public static final int pager=0x7f0a000b;
         public static final int passwordField=0x7f0a0008;
-        public static final int profilePic=0x7f0a0013;
-        public static final int searchText=0x7f0a001c;
+        public static final int profilePic=0x7f0a0012;
+        public static final int searchText=0x7f0a001b;
         public static final int signUpText=0x7f0a000a;
         public static final int signup_Email=0x7f0a000e;
         public static final int signup_Password=0x7f0a000d;
         public static final int signup_userName=0x7f0a000c;
         public static final int status_text_box=0x7f0a0001;
-        public static final int timestamp=0x7f0a0015;
-        public static final int txtStatusMsg=0x7f0a0016;
-        public static final int userFriends=0x7f0a001b;
+        public static final int timestamp=0x7f0a0014;
+        public static final int txtStatusMsg=0x7f0a0015;
+        public static final int userFriends=0x7f0a001c;
         public static final int userNameField=0x7f0a0007;
     }
     public static final class layout {

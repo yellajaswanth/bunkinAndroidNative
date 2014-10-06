@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.Window;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -26,6 +27,7 @@ public class ComposeActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_compose);
+		requestWindowFeature(Window.FEATURE_INDETERMINATE_PROGRESS);
 	}
 
 	@Override
@@ -49,7 +51,7 @@ public class ComposeActivity extends Activity {
 				Toast.makeText(this, "No status text to update", Toast.LENGTH_LONG).show();
 			}
 			else{
-				
+				setProgressBarIndeterminateVisibility(true);
 				ParseAnalytics.trackAppOpened(getIntent());
 				ParseUser currentUser = ParseUser.getCurrentUser();			
 				
@@ -62,11 +64,10 @@ public class ComposeActivity extends Activity {
 					
 					@Override
 					public void done(ParseException e) {
-						
+						setProgressBarIndeterminateVisibility(false);
 						if(e==null) {
 							Log.d(TAG, "Yayyy, Successful!!!");
-							Intent intent = new Intent(ComposeActivity.this, MainActivity.class);							
-							startActivity(intent);
+							finish();
 						}
 					}
 				});
