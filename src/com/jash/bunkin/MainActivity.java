@@ -339,6 +339,10 @@ public class MainActivity extends FragmentActivity implements
 			AlertDialog statusDlg = builder.create();
 			statusDlg.show();
 			return true;
+		case R.id.action_settings:
+			intent = new Intent(this, SettingsActivity.class);
+			startActivity(intent);
+			return true;
 		default:
 			return super.onOptionsItemSelected(item);
 		}		

@@ -56,15 +56,13 @@
     </string-array>
 
     <string name="title_activity_create_bunkin">Create Bunkin</string>
-
     <string name="bunkin_name">Bunkin name</string>
-
     <string name="bunkin_details_hint">Details</string>
-
     <string name="bunkin_Location_hint">Location</string>
-
     <string name="bunkin_date_hint">Date</string>
-
     <string name="bunkin_time_hint">Time</string>
+    <string name="action_settings_label">Settings</string>
+    <string name="title_activity_settings">Settings</string>
+    <string name="fb_connect">Connect with Facebook</string>
 
 </resources>
