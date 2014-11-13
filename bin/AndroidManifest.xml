@@ -72,16 +72,25 @@
             android:label="@string/title_activity_settings"
             android:parentActivityName=".MainActivity"
             android:screenOrientation="portrait" >
-            
         </activity>
-        
         <activity
             android:name="com.facebook.LoginActivity"
             android:label="@string/com_facebook_loginview_log_in_button"
-            
             android:screenOrientation="portrait" >
         </activity>
-        <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="527984927302867"/>
+
+        <meta-data
+            android:name="com.facebook.sdk.ApplicationId"
+            android:value="527984927302867" />
+
+        <activity
+            android:name=".BunkinEventDetailActivity"
+            android:label="@string/title_activity_bunkin_event_detail"
+            android:parentActivityName=".MainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.jash.bunkin.MainActivity" />
+        </activity>
     </application>
 
 </manifest>

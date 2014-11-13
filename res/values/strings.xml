@@ -64,5 +64,6 @@
     <string name="action_settings_label">Settings</string>
     <string name="title_activity_settings">Settings</string>
     <string name="fb_connect">Connect with Facebook</string>
+    <string name="title_activity_bunkin_event_detail">BunkinEventDetailActivity</string>
 
 </resources>
